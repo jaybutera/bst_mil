@@ -1,18 +1,16 @@
-(let (snd_hash (get 0 (get 1 (get 2 SpenderTx))))
+(and
     (and
-        (and
-            ; Cov script perpetuates to spender
-            (and (= CovHash (get 0 (get 1 (get 2 SpenderTx))))
-                 (= CovHash (get 0 (get 0 (get 2 SpenderTx)))))
-            ; Assuming first input is this scripts tx?
-            (let (fst_input (get 0 (get 1 SpenderTx))
-                  spender_idx (btoi (get 5 SpenderTx))
-                  self_idx 2)
-                (if (get 1 fst_input)
-                    (> spender_idx self_idx)
-                    (< spender_idx self_idx))))
-        (let (name (slice 64 32 (get 5 SpenderTx))
-              spender_idx (btoi (get 5 SpenderTx)))
-            ; Index should be the hash of the name
-            (= spender_idx (btoi (hash 32 name))))))
-            ;(= 64 (len name)))))
+        ; Cov script perpetuates to spender
+        (and (= COV-HASH (get (get (get SPENDER-TX 2) 1) 0))
+             (= COV-HASH (get (get (get SPENDER-TX 2) 1) 0)))
+        ; Determine which output is being spent and compare indices accordingly
+        (let (left-output? (bytes->u256 (slice SELF-INPUT 32 64))
+              spender_idx  (bytes->u256 (get SPENDER-TX 5))
+              self_idx     (bytes->u256 SELF-INPUT))
+            (if left-output?
+                (> spender_idx self_idx)
+                (< spender_idx self_idx))))
+    (let (name (slice (get SPENDER-TX 5) 32 64)
+          spender_idx (bytes->u256 (get SPENDER-TX 5)))
+        ; Index should be the hash of the name
+        (= spender_idx (bytes->u256 (hash 32 name)))))
