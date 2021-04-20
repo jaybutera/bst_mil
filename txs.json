@@ -10,21 +10,21 @@
         ],
         "outputs": [
             {
-                "covhash": "52ac3957b76ea632698af9df05f1706b789df14eef12e1d0a2ec7835fea67d6c",
+                "covhash": "125cd873176a7281da54adec644f4a28bed247ba0a29bccfc8a564d42378a54f",
                 "value": 0,
                 "denom": "6d",
-                "additional_data": "0000000000000000000000000000000000000000000000000000000000000002"
+                "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
             },
             {
-                "covhash": "52ac3957b76ea632698af9df05f1706b789df14eef12e1d0a2ec7835fea67d6c",
+                "covhash": "125cd873176a7281da54adec644f4a28bed247ba0a29bccfc8a564d42378a54f",
                 "value": 0,
                 "denom": "6d",
-                "additional_data": "0000000000000000000000000000000000000000000000000000000000000002"
+                "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
             }
         ],
         "fee": 100,
         "scripts": [],
-        "data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda0000000000000000000000000000000000000000000000000000000000000000",
+        "data": "0000000000000000000000000000000000000000000000000000000000000000",
         "sigs": []
     }],
     [ [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -38,21 +38,21 @@
         ],
         "outputs": [
             {
-                "covhash": "52ac3957b76ea632698af9df05f1706b789df14eef12e1d0a2ec7835fea67d6c",
+                "covhash": "125cd873176a7281da54adec644f4a28bed247ba0a29bccfc8a564d42378a54f",
                 "value": 0,
                 "denom": "6d",
-                "additional_data": "0000000000000000000000000000000000000000000000000000000000000002"
+                "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
             },
             {
-                "covhash": "52ac3957b76ea632698af9df05f1706b789df14eef12e1d0a2ec7835fea67d6c",
+                "covhash": "125cd873176a7281da54adec644f4a28bed247ba0a29bccfc8a564d42378a54f",
                 "value": 0,
                 "denom": "6d",
-                "additional_data": "0000000000000000000000000000000000000000000000000000000000000002"
+                "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
             }
         ],
         "fee": 100,
         "scripts": [],
-        "data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda0000000000000000000000000000000000000000000000000000000000000000",
+        "data": "0000000000000000000000000000000000000000000000000000000000000000",
         "sigs": []
     }]
 ]
