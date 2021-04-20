@@ -1,58 +1,86 @@
 [
-    [ [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    {
-        "kind": 0,
-        "inputs": [
-            {
-                "txhash": "0000000000000000000000000000000000000000000000000000000000000000",
-                "index": 0
-            }
-        ],
-        "outputs": [
-            {
+    [
+        {
+            "txhash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "index": 1
+        },
+        {
+            "coin_data": {
                 "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
                 "value": 0,
                 "denom": "6d",
                 "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
             },
-            {
-                "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
-                "value": 0,
-                "denom": "6d",
-                "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
-            }
-        ],
-        "fee": 100,
-        "scripts": [],
-        "data": "0000000000000000000000000000000000000000000000000000000000000000",
-        "sigs": []
-    }],
-    [ [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    {
-        "kind": 0,
-        "inputs": [
-            {
-                "txhash": "0000000000000000000000000000000000000000000000000000000000000000",
-                "index": 1
-            }
-        ],
-        "outputs": [
-            {
+            "height": 0
+        },
+        {
+            "kind": 0,
+            "inputs": [
+                {
+                    "txhash": "0000000000000000000000000000000000000000000000000000000000000000",
+                    "index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
+                    "value": 0,
+                    "denom": "6d",
+                    "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
+                },
+                {
+                    "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
+                    "value": 0,
+                    "denom": "6d",
+                    "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
+                }
+            ],
+            "fee": 100,
+            "scripts": [],
+            "data": "0000000000000000000000000000000000000000000000000000000000000000",
+            "sigs": []
+        }
+    ],
+    [
+        {
+            "txhash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "index": 0
+        },
+        {
+            "coin_data": {
                 "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
                 "value": 0,
                 "denom": "6d",
                 "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
             },
-            {
-                "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
-                "value": 0,
-                "denom": "6d",
-                "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
-            }
-        ],
-        "fee": 100,
-        "scripts": [],
-        "data": "0000000000000000000000000000000000000000000000000000000000000000",
-        "sigs": []
-    }]
+            "height": 0
+        },
+        {
+            "kind": 0,
+            "inputs": [
+                {
+                    "txhash": "0000000000000000000000000000000000000000000000000000000000000000",
+                    "index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
+                    "value": 0,
+                    "denom": "6d",
+                    "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
+                },
+                {
+                    "covhash": "5a84aaaae49c415a683a4b29385da45c4fa0d773bd053638ae5fedfd1bed746a",
+                    "value": 0,
+                    "denom": "6d",
+                    "additional_data": "2ada83c1819a5372dae1238fc1ded123c8104fdaa15862aaee69428a1820fcda"
+                }
+            ],
+            "fee": 100,
+            "scripts": [],
+            "data": "0000000000000000000000000000000000000000000000000000000000000000",
+            "sigs": []
+        }
+    ]
 ]
