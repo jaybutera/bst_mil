@@ -1,17 +1,17 @@
 (and
     (and
         ; Cov script perpetuates to spender
-        (and (= COV-HASH (get (get (get SPENDER-TX 2) 1) 0))
+        (and (= COV-HASH (get (get (get SPENDER-TX 2) 0) 0))
              (= COV-HASH (get (get (get SPENDER-TX 2) 1) 0)))
         ; Determine which output is being spent and compare indices accordingly
-        (let (left-output?  (bytes->u256 (slice SELF-INPUT 32 64))
-              l_spender_idx (bytes->u256 (get (get (get SPENDER-TX 2) 0) 3))
-              r_spender_idx (bytes->u256 (get (get (get SPENDER-TX 2) 1) 3))
+        (let (right-output?  (bytes->u256 (slice SELF-INPUT 32 64))
+              r_spender_idx (bytes->u256 (get (get (get SPENDER-TX 2) 0) 3))
+              l_spender_idx (bytes->u256 (get (get (get SPENDER-TX 2) 1) 3))
               self_idx      (bytes->u256 SELF-INPUT))
           (and
             ; Spender must have same index for both coins
             (= l_spender_idx r_spender_idx)
-            (if left-output?
+            (if right-output?
                 (> l_spender_idx self_idx)
                 (< l_spender_idx self_idx)))))
     (let (name (get SPENDER-TX 5)
