@@ -1,4 +1,4 @@
-## Self-enforcing Binary Search Tree
+## UTXO Binary Search Tree
 A binary search tree data structure encoded in UTXOs. Built from the
 [Bitforest](http://rboutaba.cs.uwaterloo.ca/Papers/Conferences/2018/DongCNSM18.pdf)
 design. Implemented in mil, runs on the Themelio blockchain.
