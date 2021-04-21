@@ -1,15 +1,15 @@
 ## Self-enforcing Binary Search Tree
-A binary search tree data structure encoded in UTXOs. Order is enforced within
-the output scripts. Built from the
+A binary search tree data structure encoded in UTXOs. Built from the
 [Bitforest](http://rboutaba.cs.uwaterloo.ca/Papers/Conferences/2018/DongCNSM18.pdf)
 design. Implemented in mil, runs on the Themelio blockchain.
 
-The "self-enforcing" aspect of the scripts means that not only is a transaction
-that spend this UTXO constrained to the BST ordering, but every transaction
-that follows will be constrained in the same way. This is accomplished because
-the bitforest script requires that the spending transaction's output scripts
-are indeed the same bitforest script. It is a recursively perpetuating script.
-Any transaction that spends the script must make it again spendable in its own output.
+Covenant scripts constrain what transactions can spend a UTXO (unspent-transaction-output).
+Unlike UTXO scripts in Bitcoin, themelio scripts can inspect the spender transaction,
+as well as data about the script's own UTXO.
+
+A cool consequence is that this enables a sort of "self-replication" - where a UTXO can
+require that a spending transaction has the same script in its UTXO. Such a self-replicating
+script can enforce that transactions adhere to a data structure, such as a binary search tree.
 
 ### Try it out
 Get the [mil compiler](https://github.com/themeliolabs/mil).
@@ -17,39 +17,24 @@ Get the [mil compiler](https://github.com/themeliolabs/mil).
 The txs.json file provides a transaction to test spending the script's output.
 Use the `--test-txs` flag to pass in the file containing transactions to test.
 ```
-$ mil bitforest_left.mil --test-txs.json
+$ mil bst.mil --test-txs.json
 ```
 
+txs.json contains two test transactions. The first spends the second UTXO and
+has a bigger index, so it will succeed because spender_index > self_index.
 You should see that execution succeeded on the transaction, and the final state
 of the VM will be an `Int(1)` on the stack. That means true, and the spend is
 allowed.
 
+The second test transaction spends the first UTXO, but still has a bigger index.
+It will fail because again, spender_index > self_index, but now the spender is
+trying to become the left child, which would break the BST order. Execution will
+still succeed, but the final value on the stack will be `Int(0)`, meaning the
+spend is not allowed.
+
 ### Whats happening
-There are two covenant scripts - bitforest left and right. Left is to be
-attached to the first output of a transaction; right the second. Each checks
-for its own hash in the spending script to ensure the logical structure of the
-BST is perpetuated.
-
-If you run the bitforest_right script, execution will again succeed, but the
-final state will be `Int(0)`, meaning the spend is not allowed. If you look in
-txs.json, you will see a `data` field which contains some hex:
-
-```json
-..
-"data": "0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000",
-..
-```
-
-The first 32 bytes represent 1 as a U256. This is the `index` of the node in
-the BST. The next 32 bytes are for a name, since Bitforest is a name registry.
-
-In both scripts you'll see a hardcoded hex literal representing U256 "2". This
-is the index value that should match the transaction which the script is being
-attached to.
-```clojure
-(btoi 0x0000000000000000000000000000000000000000000000000000000000000002)
-```
-Scripts can't reflect upon their own data (why would they need to when it is
-known during construction) so the field is hardcoded. This could also more
-simply just be a "2", since btoi is just "bytes to int", but the hex makes it
-more clear for demonstration that the literal represents the data field of the covenant's transaction.
+The script, `bst.mil`, is basically checking that 4 requirements are met:
+1. The spender's first two outputs perpetuate the covenant script (those script hashes = self COV-HASH).
+2. Those two outputs of the spender tx contain a matching index, the "spender-index".
+3. If the spender is spending the first UTXO of *this* tx, the spender-index is less than self-index. Otherwise it's greater. This is the BST ordering property.
+4. The spender provides a name (a value in our BST map), whose hash is its index. This way, the path to a node in the BST can be known by its name.
