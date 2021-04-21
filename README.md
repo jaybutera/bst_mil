@@ -17,7 +17,7 @@ Get the [mil compiler](https://github.com/themeliolabs/mil).
 The txs.json file provides a transaction to test spending the script's output.
 Use the `--test-txs` flag to pass in the file containing transactions to test.
 ```
-$ mil bst.mil --test-txs.json
+$ mil bst.mil --test-txs txs.json
 ```
 
 txs.json contains two test transactions. The first spends the second UTXO and
